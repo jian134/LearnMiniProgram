@@ -14,3 +14,5 @@
 <w_goods goods="{{goods[currentType].list}}"/>
 
 <w_back-top wx:if="{{showBackTop}}"/>
+
+<view>1.学会guthub管理项目</view>
