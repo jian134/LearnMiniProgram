@@ -1,0 +1,4 @@
+/* pages/home/home.wxss */
+.feature{
+  width: 100%;
+}

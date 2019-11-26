@@ -1,0 +1,16 @@
+<!--pages/home/home.wxml-->
+
+<w_swiper images="{{banners}}" />
+
+<w_recommend recommends="{{recommends}}" />
+
+<view>
+  <image src="/assets/images/home/recommend_bg.jpg" class='feature'></image>
+</view>
+
+<w_tab-control titles="{{titles}}" bind:tabClick="handletabClick"/>
+
+
+<w_goods goods="{{goods[currentType].list}}"/>
+
+<w_back-top wx:if="{{showBackTop}}"/>
