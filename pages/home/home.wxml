@@ -16,3 +16,4 @@
 <w_back-top wx:if="{{showBackTop}}"/>
 
 <view>1.学会guthub管理项目</view>
+<view>3.知识点3</view>
