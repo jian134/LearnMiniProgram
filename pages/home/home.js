@@ -7,7 +7,7 @@ const Arrytitles = ['pop', 'new', 'sell']
 const POP = "pop";
 const SELL = "sell";
 const NEW = "new";
-const BACK_TOP_POSITION = "20"
+const BACK_TOP_POSITION = "1000"
 Page({
 
   data: {
@@ -29,7 +29,9 @@ Page({
         list: []
       },
     },
-    showBackTop: false
+    showBackTop: false,
+    isTabFixed:false,
+    tabScrollTop:0
   },
 
   onLoad: function(options) {
@@ -46,8 +48,14 @@ Page({
     this.setData({
       currentType: Arrytitles[index]
     })
+   },
+  handimageload() {
+    wx.createSelectorQuery().select('#tab-control').boundingClientRect(rect => {
+      this.data.tabScrollTop=rect.top
+    }).exec()
   },
-  onPageScroll(options) {
+//  ---------------------- 页面滚动请求函数------------------
+   onPageScroll(options) {
     const scrollTop = options.scrollTop
     const flag = scrollTop >= BACK_TOP_POSITION
     if (flag != this.data.showBackTop) {
@@ -55,6 +63,12 @@ Page({
         showBackTop: scrollTop >= BACK_TOP_POSITION
       })
     }
+     const flag2 = scrollTop >=this.data.tabScrollTop
+     if(flag2!=this.data.isTabFixed){
+       this.setData({
+         isTabFixed: scrollTop >= this.data.tabScrollTop
+       })
+     }
   },
   //------------------------网络请求函数--------------------------
   _getMultidata() {

@@ -2,18 +2,20 @@
 
 <w_swiper images="{{banners}}" />
 
-<w_recommend recommends="{{recommends}}" />
+<w_recommend recommends="{{recommends}}" bind:imageload="handimageload" />
 
 <view>
   <image src="/assets/images/home/recommend_bg.jpg" class='feature'></image>
 </view>
 
-<w_tab-control titles="{{titles}}" bind:tabClick="handletabClick"/>
+<w_tab-control 
+class='{{isTabFixed?"fixed":""}}' id="tab-control"
+ titles="{{titles}}" bind:tabClick="handletabClick"/>
 
+<w_tab-control 
+wx:if='{{isTabFixed}}'
+ titles="{{titles}}"/>
 
 <w_goods goods="{{goods[currentType].list}}"/>
 
 <w_back-top wx:if="{{showBackTop}}"/>
-
-<view>1.学会guthub管理项目</view>
-<view>3.知识点3</view>

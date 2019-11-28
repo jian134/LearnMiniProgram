@@ -1,9 +1,11 @@
 /* components/w_tab-control/w_tab-control.wxss */
 
 .tab-control {
+  background-color: #fff;
     display: flex;
     margin-bottom: 16rpx;
-    margin-top:16rpx; 
+    /* margin-top:16rpx;  */
+    padding-bottom: 10rpx;
 }
 
 .tab-item {
